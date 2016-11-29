@@ -50,3 +50,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Property has many maintenance_requests -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Maintenance_requests
+      </li>
+
+      <% @property.maintenance_requests.each do |maintenance_request| %>
+        <li class="list-group-item">
+          <a href="/maintenance_requests/<%= maintenance_request.id %>">
+            <%= maintenance_request.property_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/maintenance_requests/<%= maintenance_request.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/maintenance_requests/<%= maintenance_request.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_maintenance_request/<%= maintenance_request.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Property has many messages -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Messages
+      </li>
+
+      <% @property.messages.each do |message| %>
+        <li class="list-group-item">
+          <a href="/messages/<%= message.id %>">
+            <%= message.sender_type %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/messages/<%= message.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/messages/<%= message.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_message/<%= message.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
