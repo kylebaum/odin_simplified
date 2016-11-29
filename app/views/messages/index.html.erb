@@ -21,7 +21,7 @@
         <td><%= message.sender_type %></td>
         <td><%= message.recipient_type %></td>
         <td><%= message.body %></td>
-        <td><%= message.property_id %></td>
+        <td><%= message.property.owner_id %></td>
         <td>
           <a href="/messages/<%= message.id %>" class="btn btn-primary">Show</a>
           <a href="/messages/<%= message.id %>/edit" class="btn btn-warning">Edit</a>
