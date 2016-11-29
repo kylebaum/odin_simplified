@@ -1,6 +1,6 @@
 class ManagersController < ApplicationController
   def index
-    @managers = Manager.all
+    @managers = Manager.page(params[:page]).per(10)
 
     render("managers/index.html.erb")
   end
