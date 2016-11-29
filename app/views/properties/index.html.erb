@@ -24,9 +24,27 @@
 
       <% @properties.each do |property| %>
       <tr>
-        <td><%= property.owner.email %></td>
-        <td><%= property.tenant.email %></td>
-        <td><%= property.manager.email %></td>
+        <td>
+          <% if property.owner.present? %>
+            <a href="/owners/<%= property.owner.id %>">
+              <%= property.owner.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if property.tenant.present? %>
+            <a href="/tenants/<%= property.tenant.id %>">
+              <%= property.tenant.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if property.manager.present? %>
+            <a href="/managers/<%= property.manager.id %>">
+              <%= property.manager.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= property.home_or_apartment %></td>
         <td><%= property.number_bedrooms %></td>
         <td><%= property.number_bathrooms %></td>

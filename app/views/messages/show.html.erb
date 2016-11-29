@@ -15,7 +15,13 @@
       <dd><%= @message.body %></dd>
 
       <dt>Property</dt>
-      <dd><%= @message.property_id %></dd>
+      <dd>
+        <% if @message.property.present? %>
+          <a href="/properties/<%= @message.property_id %>">
+            <%= @message.property.owner_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Owner</dt>
-      <dd><%= @property.owner_id %></dd>
+      <dd>
+        <% if @property.owner.present? %>
+          <a href="/owners/<%= @property.owner_id %>">
+            <%= @property.owner.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Tenant</dt>
-      <dd><%= @property.tenant_id %></dd>
+      <dd>
+        <% if @property.tenant.present? %>
+          <a href="/tenants/<%= @property.tenant_id %>">
+            <%= @property.tenant.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Manager</dt>
-      <dd><%= @property.manager_id %></dd>
+      <dd>
+        <% if @property.manager.present? %>
+          <a href="/managers/<%= @property.manager_id %>">
+            <%= @property.manager.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Home or apartment</dt>
       <dd><%= @property.home_or_apartment %></dd>
