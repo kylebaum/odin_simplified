@@ -42,7 +42,7 @@
           Manager
         </label>
 
-        <input type="text" id="manager_id" name="manager_id" placeholder="Manager" class="form-control" value="<%= @property.manager_id %>">
+        <%= select_tag(:manager_id, options_from_collection_for_select(Manager.all, :id, :email, @property.manager_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for home_or_apartment -->
