@@ -6,6 +6,8 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @message = Message.new
+    @maintenance_request = MaintenanceRequest.new
     @property = Property.find(params[:id])
 
     render("properties/show.html.erb")

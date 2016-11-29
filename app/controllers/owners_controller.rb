@@ -6,6 +6,7 @@ class OwnersController < ApplicationController
   end
 
   def show
+    @property = Property.new
     @owner = Owner.find(params[:id])
 
     render("owners/show.html.erb")

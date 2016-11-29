@@ -6,6 +6,7 @@ class ManagersController < ApplicationController
   end
 
   def show
+    @property = Property.new
     @manager = Manager.find(params[:id])
 
     render("managers/show.html.erb")
