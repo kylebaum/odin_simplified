@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "properties#index"
   # Routes for the Message resource:
   # CREATE
