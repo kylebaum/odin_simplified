@@ -1,6 +1,7 @@
 class ManagersController < ApplicationController
   def index
-    @managers = Manager.page(params[:page]).per(10)
+    @q = Manager.ransack(params[:q])
+    @managers = @q.result(:distinct => true).includes(:properties).page(params[:page]).per(10)
 
     render("managers/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class MaintenanceRequestsController < ApplicationController
   def index
-    @maintenance_requests = MaintenanceRequest.page(params[:page]).per(10)
+    @q = MaintenanceRequest.ransack(params[:q])
+    @maintenance_requests = @q.result(:distinct => true).includes(:property).page(params[:page]).per(10)
 
     render("maintenance_requests/index.html.erb")
   end
