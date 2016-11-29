@@ -1,6 +1,8 @@
 class Property < ApplicationRecord
   # Direct associations
 
+  belongs_to :manager
+
   has_many   :messages,
              :dependent => :destroy
 
