@@ -1,0 +1,118 @@
+<!-- Validation failure messages -->
+<% if @property.errors.any? %>
+  <% @property.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Property</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_property" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for owner_id -->
+      <div class="form-group">
+        <label for="owner_id" class="control-label">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id" name="owner_id" placeholder="Owner" class="form-control" value="<%= @property.owner_id %>">
+      </div>
+
+      <!-- Label and input for tenant_id -->
+      <div class="form-group">
+        <label for="tenant_id" class="control-label">
+          Tenant
+        </label>
+
+        <input type="text" id="tenant_id" name="tenant_id" placeholder="Tenant" class="form-control" value="<%= @property.tenant_id %>">
+      </div>
+
+      <!-- Label and input for manager_id -->
+      <div class="form-group">
+        <label for="manager_id" class="control-label">
+          Manager
+        </label>
+
+        <input type="text" id="manager_id" name="manager_id" placeholder="Manager" class="form-control" value="<%= @property.manager_id %>">
+      </div>
+
+      <!-- Label and input for home_or_apartment -->
+      <div class="form-group">
+        <label for="home_or_apartment" class="control-label">
+          Home or apartment
+        </label>
+
+        <input type="text" id="home_or_apartment" name="home_or_apartment" placeholder="Home or apartment" class="form-control" value="<%= @property.home_or_apartment %>">
+      </div>
+
+      <!-- Label and input for number_bedrooms -->
+      <div class="form-group">
+        <label for="number_bedrooms" class="control-label">
+          Number bedrooms
+        </label>
+
+        <input type="text" id="number_bedrooms" name="number_bedrooms" placeholder="Number bedrooms" class="form-control" value="<%= @property.number_bedrooms %>">
+      </div>
+
+      <!-- Label and input for number_bathrooms -->
+      <div class="form-group">
+        <label for="number_bathrooms" class="control-label">
+          Number bathrooms
+        </label>
+
+        <input type="text" id="number_bathrooms" name="number_bathrooms" placeholder="Number bathrooms" class="form-control" value="<%= @property.number_bathrooms %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @property.city %>">
+      </div>
+
+      <!-- Label and input for neighborhood -->
+      <div class="form-group">
+        <label for="neighborhood" class="control-label">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood" name="neighborhood" placeholder="Neighborhood" class="form-control" value="<%= @property.neighborhood %>">
+      </div>
+
+      <!-- Label and input for policies -->
+      <div class="form-group">
+        <label for="policies" class="control-label">
+          Policies
+        </label>
+
+        <input type="text" id="policies" name="policies" placeholder="Policies" class="form-control" value="<%= @property.policies %>">
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @property.price %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Property
+      </button>
+      or
+      <a href="/properties">Cancel</a>
+    </form>
+  </div>
+</div>

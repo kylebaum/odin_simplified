@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1>
+    Properties
+    <a href="/properties/new" class="btn btn-lg btn-success">New Property</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Owner</th>
+        <th>Tenant</th>
+        <th>Manager</th>
+        <th>Home or apartment</th>
+        <th>Number bedrooms</th>
+        <th>Number bathrooms</th>
+        <th>City</th>
+        <th>Neighborhood</th>
+        <th>Policies</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.owner_id %></td>
+        <td><%= property.tenant_id %></td>
+        <td><%= property.manager_id %></td>
+        <td><%= property.home_or_apartment %></td>
+        <td><%= property.number_bedrooms %></td>
+        <td><%= property.number_bathrooms %></td>
+        <td><%= property.city %></td>
+        <td><%= property.neighborhood %></td>
+        <td><%= property.policies %></td>
+        <td><%= property.price %></td>
+        <td>
+          <a href="/properties/<%= property.id %>" class="btn btn-primary">Show</a>
+          <a href="/properties/<%= property.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_property/<%= property.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
