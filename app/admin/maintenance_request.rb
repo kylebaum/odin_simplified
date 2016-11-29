@@ -1,5 +1,7 @@
 ActiveAdmin.register MaintenanceRequest do
 
+ permit_params :property_id, :body_of_request
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
