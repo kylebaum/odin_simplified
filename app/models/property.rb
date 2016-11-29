@@ -1,6 +1,8 @@
 class Property < ApplicationRecord
   # Direct associations
 
+  belongs_to :owner
+
   belongs_to :tenant
 
   belongs_to :manager
