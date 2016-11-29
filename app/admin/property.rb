@@ -1,5 +1,7 @@
 ActiveAdmin.register Property do
 
+ permit_params :owner_id, :tenant_id, :manager_id, :home_or_apartment, :number_bedrooms, :number_bathrooms, :city, :neighborhood, :policies, :price
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
