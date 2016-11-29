@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @maintenance_request.errors.any? %>
+  <% @maintenance_request.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Maintenance Request</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_maintenance_request" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for property_id -->
+      <div class="form-group">
+        <label for="property_id" class="control-label">
+          Property
+        </label>
+
+        <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @maintenance_request.property_id %>">
+      </div>
+
+      <!-- Label and input for body_of_request -->
+      <div class="form-group">
+        <label for="body_of_request" class="control-label">
+          Body of request
+        </label>
+
+        <textarea id="body_of_request" name="body_of_request" placeholder="Body of request" class="form-control" rows="3"><%= @maintenance_request.body_of_request %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Maintenance Request
+      </button>
+      or
+      <a href="/maintenance_requests">Cancel</a>
+    </form>
+  </div>
+</div>

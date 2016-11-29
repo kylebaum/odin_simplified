@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Maintenance_request resource:
+  # CREATE
+  get "/maintenance_requests/new", :controller => "maintenance_requests", :action => "new"
+  post "/create_maintenance_request", :controller => "maintenance_requests", :action => "create"
+
+  # READ
+  get "/maintenance_requests", :controller => "maintenance_requests", :action => "index"
+  get "/maintenance_requests/:id", :controller => "maintenance_requests", :action => "show"
+
+  # UPDATE
+  get "/maintenance_requests/:id/edit", :controller => "maintenance_requests", :action => "edit"
+  post "/update_maintenance_request/:id", :controller => "maintenance_requests", :action => "update"
+
+  # DELETE
+  get "/delete_maintenance_request/:id", :controller => "maintenance_requests", :action => "destroy"
+  #------------------------------
+
   # Routes for the Owner resource:
   # CREATE
   get "/owners/new", :controller => "owners", :action => "new"
