@@ -24,7 +24,7 @@
 
       <% @properties.each do |property| %>
       <tr>
-        <td><%= property.owner_id %></td>
+        <td><%= property.owner.email %></td>
         <td><%= property.tenant_id %></td>
         <td><%= property.manager_id %></td>
         <td><%= property.home_or_apartment %></td>
