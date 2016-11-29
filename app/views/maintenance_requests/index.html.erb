@@ -16,7 +16,7 @@
 
       <% @maintenance_requests.each do |maintenance_request| %>
       <tr>
-        <td><%= maintenance_request.property_id %></td>
+        <td><%= maintenance_request.property.owner_id %></td>
         <td><%= maintenance_request.body_of_request %></td>
         <td>
           <a href="/maintenance_requests/<%= maintenance_request.id %>" class="btn btn-primary">Show</a>
